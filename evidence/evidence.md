@@ -8,7 +8,7 @@ Result: **120/120 points (100%)**.
 
 ![Passing task checks](test-evidence-1.png)
 
-[](test-evidence-2.png)
+![Parallel Knowledge Base retrieval output](test-evidence-2.png)
 
 ![Final score: 120/120](test-evidence-3.png)
 
