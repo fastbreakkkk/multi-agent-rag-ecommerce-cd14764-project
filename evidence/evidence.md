@@ -2,24 +2,37 @@
 
 ## Automated tests
 
-Ran `python tests/test_agent.py all`. 
+Command: `python tests/test_agent.py all` — **120/120 points**.
 
-Result: **120/120 points (100%)**.
+- [Tasks 2–5 passing](test-pass-evidence1.png)
+- [Parallel KB retrieval](test-pass-evidence-2.png)
+- [Task 6 and final 120/120 score](test-pass-evidence-3.png)
 
-![Passing task checks](test-evidence-1.png)
+## AgentCore deployment
 
-![Parallel Knowledge Base retrieval output](test-evidence-2.png)
+- [Active runtime, HTTP/Public configuration, guardrail version 2](agentcore-runtime-evidence.png)
 
-![Final score: 120/120](test-evidence-3.png)
+## Knowledge Bases
 
-## X-Ray tracing
+| Knowledge Base | Configuration | Completed sync |
+| --- | --- | --- |
+| Returns | [KB, Titan v2, S3 Vectors index](returns-kb-evidence.png) | [Sync complete](returns-sync-evidence.png) |
+| Shipping | [KB, Titan v2, S3 Vectors index](shipping-kb-evidence.png) | [Sync complete](shipping-sync-evidence.png) |
+| Warranty | [KB, Titan v2, S3 Vectors index](warranty-kb-evidence.png) | [Sync complete](warranty-policy-sync-evidence.png) |
 
-The Trace Map shows NovaMart-Orchestrator, all four worker agents, and the returns, shipping, and warranty Knowledge Bases.
+## Configuration
 
-![Full X-Ray Trace Map](full-x-ray-tracemap.png)
+- [config.py output](config.py-evidence.png)
+- [Active runtime with guardrail version 2](agentcore-runtime-evidence.png)
 
-The policy request trace (`1-6ae10804-9cce18a6f17b34a4a5ab10f1`) shows PolicyAgent, all three Knowledge Base retrievals, and CommunicationAgent. It recorded **17 spans, 0 faults, and 0 errors**.
+## Live scenarios
 
-![Policy request spans](x-ray-trace-evidence.png)
+- Return: [Step 01](step1.png), [Step 02](step2.png), [Step 03](step3.png), [response and trace](step3-2.png)
+- Policy: [Step 04](step4.png), [retrieval 1](step4-2.png), [retrieval 2](step4-3.png), [Step 05](step5.png), [response and trace](step5-2.png)
+- Calculation: [Step 06 and $134.96 response](step6-calculation-refund.png)
 
-The full map includes a RefundAgent fault from an initial call; the orchestrator retried that call successfully.
+## X-Ray
+
+- [Full Trace Map: orchestrator, workers, and three Knowledge Bases](full-x-ray-tracemap.png)
+- [Policy request spans](x-ray-trace-evidence.png)
+- [Policy request trace graph](x-ray-map-evidence.png)

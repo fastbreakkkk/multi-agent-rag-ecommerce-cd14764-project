@@ -1083,7 +1083,7 @@ def create_guardrail() -> tuple[str, str]:
             for v in versions.get("guardrails", []):
                 version = v.get("version", "DRAFT")
 
-                if version.isdigit():
+                if version.isdigit() and version == config.GUARDRAIL_VERSION:
                     details = bedrock_client.get_guardrail(
                         guardrailIdentifier=guardrail_id,
                         guardrailVersion=version,
